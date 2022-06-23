@@ -3,22 +3,93 @@
 @import url('http://fonts.cdnfonts.com/css/cocogoose');
 @import url('http://fonts.googleapis.com/css?family=Lato:400,700');
 
-.bg-image:after {
+body {
+  overflow-x: hidden;
+}
+
+.navbar-toggler {
+  border: 0 !important;
+}
+
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Lines of the Toggler */
+.toggler-icon {
+  width: 30px;
+  height: 3px;
+  background-color: #e74c3c;
+  display: block;
+  transition: all 0.2s;
+}
+
+/* Adds Space between the lines */
+.middle-bar {
+  margin: 5px auto;
+}
+
+/* State when navbar is opened (START) */
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+
+.navbar-toggler .middle-bar {
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+
+/* State when navbar is opened (END) */
+
+/* State when navbar is collapsed (START) */
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+
+/* State when navbar is collapsed (END) */
+
+/* Color of Toggler when collapsed */
+.navbar-toggler.collapsed .toggler-icon {
+  background-color: #777;
+}
+
+.bg-image::after {
   content: '';
   position: absolute;
   left: 0;
   width: 100%;
   top: 0;
   height: 100%;
-  background-color: rgba(121, 106, 106, 0.6);
+  background-color: #d3d3d3;
+  opacity: 0.8;
 }
 
 .cocogoose {
-  font-family: 'COCOGOOSE', 'CocogoosePro-Thin', 'cocogoose';
+  font-family: 'COCOGOOSE', 'CocogoosePro-Thin', 'cocogoose', sans-serif;
+  color: #ec5242;
 }
 
 .lato {
-  font-family: 'Lato';
+  font-family: 'Lato', sans-serif;
 }
 
 #introduction {
@@ -27,21 +98,16 @@
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
-  /*opacity: 0.6;*/
+  background-blend-mode: color-burn;
 }
 
 #program {
   background: url('img/background.png');
   background-repeat: repeat-y;
-  /*-webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;*/
-  /*opacity: 0.6;*/
 }
 
 .img-card {
-  width:90px;
+  width: 90px;
   align-self: center;
 }
 
@@ -52,11 +118,16 @@
 /* Slider */
 
 .slick-slide {
-  margin: 0px 20px;
+  margin: 0 20px;
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
 }
 
 .slick-slide img {
   width: 100%;
+  display: block;
 }
 
 .slick-slider {
@@ -66,11 +137,11 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-          user-select: none;
+  user-select: none;
   -webkit-touch-callout: none;
   -khtml-user-select: none;
   -ms-touch-action: pan-y;
-      touch-action: pan-y;
+  touch-action: pan-y;
   -webkit-tap-highlight-color: transparent;
 }
 
@@ -91,6 +162,13 @@
   cursor: hand;
 }
 
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+}
+
 .slick-slider .slick-track,
 .slick-slider .slick-list {
   -webkit-transform: translate3d(0, 0, 0);
@@ -100,20 +178,13 @@
   transform: translate3d(0, 0, 0);
 }
 
-.slick-track {
-  position: relative;
-  top: 0;
-  left: 0;
-  display: block;
-}
-
-.slick-track:before,
-.slick-track:after {
+.slick-track::before,
+.slick-track::after {
   display: table;
   content: '';
 }
 
-.slick-track:after {
+.slick-track::after {
   clear: both;
 }
 
@@ -121,19 +192,8 @@
   visibility: hidden;
 }
 
-.slick-slide {
-  display: none;
-  float: left;
-  height: 100%;
-  min-height: 1px;
-}
-
 [dir='rtl'] .slick-slide {
   float: right;
-}
-
-.slick-slide img {
-  display: block;
 }
 
 .slick-slide.slick-loading img {
@@ -160,22 +220,4 @@
 
 .slick-arrow.slick-hidden {
   display: none;
-}
-
-img{
-	max-width: 100%;
-}
-.gallery{
-	background-color: #dbddf1;
-	padding: 80px 0;
-}
-.gallery img{
-	background-color: #ffffff;
-	padding: 15px;
-	width: 100%;
-	box-shadow: 0 0 15px rgba(0,0,0,0.3);
-	cursor: pointer;
-}
-#gallery-modal .modal-img{
-	width: 100%;
 }
