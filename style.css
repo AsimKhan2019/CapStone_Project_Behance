@@ -115,7 +115,7 @@
   content: '';
 }
 
-.slick-track:after {
+.slick-track::after {
   clear: both;
 }
 
