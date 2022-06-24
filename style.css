@@ -12,8 +12,8 @@ body {
 }
 
 .navbar-toggler:focus,
-.navbar-toggler:active,
-.navbar-toggler-icon:focus {
+.navbar-toggler-icon:focus,
+.navbar-toggler:active {
   outline: none !important;
   box-shadow: none !important;
   border: 0 !important;
